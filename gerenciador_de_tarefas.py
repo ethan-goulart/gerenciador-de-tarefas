@@ -49,7 +49,7 @@ def editar_tarefa(tarefas):
 def excluir_tarefa(tarefas):
     visualizar_tarefa(tarefas)
     aux = int(input("Digite o numero da tarefa a ser Excluida: "))
-    excluir_tarefa_tarefa = tarefas.pop(aux - 1)
+    excluir_tarefa = tarefas.pop(aux - 1)
     salvar_tarefa(tarefas)
     print(f"Tarefa '{excluir_tarefa['descricao']}' excluída! \n")
 

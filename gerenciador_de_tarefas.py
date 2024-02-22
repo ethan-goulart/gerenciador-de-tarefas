@@ -1,13 +1,16 @@
 import json
 import os
 
+
+# Função para carregar as tarefas do arquivo JSON
 def carregar_tarefa():
     if os.path.exists('tarefas.json'):
         with open('tarefas.json','r') as arquivo:
             return json.load(arquivo)
     else:
         return []
-    
+
+# Função para salvar as tarefas em um arquivo JSON
 def salvar_tarefa(tarefas):
     with open('tarefas.json', 'w') as arquivo:
         json.dump(tarefas, arquivo, indent=2)
@@ -20,7 +23,20 @@ def adicionar_tarefa(tarefas):
     print("Tarefa adicionada com sucesso!")
 
 def visualizar_tarefa(tarefas):
-    print(tarefas)
+    if tarefas:
+        print("Lista de Tarefas:")
+        for i, tarefa in enumerate(tarefas):
+            status = "✔" if tarefa["completa"] else "❌"
+            print(f"{i + 1}. [{status}] {tarefa['descricao']}")
+    else:
+        print("Não há tarefas.")
+
+def completar_tarefa(tarefas):
+    visualizar_tarefa(tarefas)
+    aux = int(input("Digite o numero da tarefa que deseja marcar como completa: "))
+    tarefas[aux - 1]["completa"] = True
+    salvar_tarefa(tarefas)
+    print("Tarefa completada!")
 
 def principal():
 
@@ -30,6 +46,7 @@ def principal():
         print("\n===== Gerenciador de Tarefas =====")
         print("1. Adicionar Tarefa")
         print("2. Visualizar Tarefas")
+        print("3. Completar Tarefas")
         print("0. Sair")
 
         menu = input("Digite o número da opção desejada: ")
@@ -38,7 +55,9 @@ def principal():
             adicionar_tarefa(tarefas)
         if menu == "2":
             visualizar_tarefa(tarefas)
-        elif menu == "0":
+        if menu == "3":
+            completar_tarefa(tarefas)
+        if menu == "0":
             print("Saindo do programa...")
             break
         else:

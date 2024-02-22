@@ -14,5 +14,9 @@
   {
     "descricao": "correr",
     "completa": false
+  },
+  {
+    "descricao": "limpar a casa",
+    "completa": false
   }
 ]

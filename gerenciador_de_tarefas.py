@@ -38,6 +38,13 @@ def completar_tarefa(tarefas):
     salvar_tarefa(tarefas)
     print("Tarefa completada!\n")
 
+def desmarcar_tarefa(tarefas):
+    visualizar_tarefa(tarefas)
+    aux = int(input("Digite o numero da tarefa que deseja marcar como completa: "))
+    tarefas[aux - 1]["completa"] = False
+    salvar_tarefa(tarefas)
+    print("Tarefa completada!\n")
+
 def editar_tarefa(tarefas):
     visualizar_tarefa(tarefas)
     aux = int(input("Digite o numero da tarefa que deseja editar: "))
@@ -62,8 +69,9 @@ def principal():
         print("1. Adicionar Tarefa")
         print("2. Visualizar Tarefas")
         print("3. Completar Tarefas")
-        print("4. Editar Tarefas")
-        print("5. Excluir Tarefas")
+        print("4. Desmarcar Tarefas")
+        print("5. Editar Tarefas")
+        print("6. Excluir Tarefas")
         print("0. Sair")
 
         menu = input("Digite o número da opção desejada: ")
@@ -75,8 +83,10 @@ def principal():
         elif menu == "3":
             completar_tarefa(tarefas)
         elif menu == "4":
-            editar_tarefa(tarefas)
+            desmarcar_tarefa(tarefas)
         elif menu == "5":
+            editar_tarefa(tarefas)
+        elif menu == "6":
             excluir_tarefa(tarefas)
         elif menu == "0":
             print("Saindo do programa...")

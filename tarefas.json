@@ -1,6 +1,18 @@
 [
   {
+    "descricao": "fazer caf\u00e9",
+    "completa": true
+  },
+  {
+    "descricao": "ler ebook",
+    "completa": false
+  },
+  {
     "descricao": "teste",
+    "completa": false
+  },
+  {
+    "descricao": "correr",
     "completa": false
   }
 ]

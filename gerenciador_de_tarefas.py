@@ -20,30 +20,38 @@ def adicionar_tarefa(tarefas):
     tarefa = {"descricao": descricao, "completa": False}
     tarefas.append(tarefa)
     salvar_tarefa(tarefas)
-    print("Tarefa adicionada com sucesso!")
+    print("Tarefa adicionada com sucesso!\n")
 
 def visualizar_tarefa(tarefas):
     if tarefas:
-        print("Lista de Tarefas:")
+        print("\nLista de Tarefas:")
         for i, tarefa in enumerate(tarefas):
             status = "✔" if tarefa["completa"] else "❌"
             print(f"{i + 1}. [{status}] {tarefa['descricao']}")
     else:
-        print("Não há tarefas.")
+        print("Não há tarefas.\n")
 
 def completar_tarefa(tarefas):
     visualizar_tarefa(tarefas)
     aux = int(input("Digite o numero da tarefa que deseja marcar como completa: "))
     tarefas[aux - 1]["completa"] = True
     salvar_tarefa(tarefas)
-    print("Tarefa completada!")
+    print("Tarefa completada!\n")
 
 def editar_tarefa(tarefas):
-    print("teste")
+    visualizar_tarefa(tarefas)
+    aux = int(input("Digite o numero da tarefa que deseja editar: "))
+    new_descricao = input("Digite a nova descricao da tarefa: ")
+    tarefas[aux - 1]["descricao"] = new_descricao
+    salvar_tarefa(tarefas)
+    print("Tarefa Editada!\n")
 
 def excluir_tarefa(tarefas):
-    print("teste")
-
+    visualizar_tarefa(tarefas)
+    aux = int(input("Digite o numero da tarefa a ser Excluida: "))
+    excluir_tarefa_tarefa = tarefas.pop(aux - 1)
+    salvar_tarefa(tarefas)
+    print(f"Tarefa '{excluir_tarefa['descricao']}' excluída! \n")
 
 def principal():
 

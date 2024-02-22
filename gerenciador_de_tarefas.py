@@ -1,7 +1,10 @@
 def adicionar_tarefa(tarefas):
-    descricao = input("Digite a descricao da tareda: ")
+    descricao = input("Digite a descricao da tarefa: ")
     tarefa = {"descricao": descricao, "completa": False}
     tarefas.append(tarefa)
+    print("Tarefa adicionada com sucesso!")
+
+def visualizar_tarefa(tarefas):
     print(tarefas)
 
 def principal():
@@ -11,16 +14,20 @@ def principal():
     while True:
         print("\n===== Gerenciador de Tarefas =====")
         print("1. Adicionar Tarefa")
+        print("2. Visualizar Tarefas")
         print("0. Sair")
 
         menu = input("Digite o número da opção desejada: ")
 
         if menu == "1":
             adicionar_tarefa(tarefas)
+        if menu == "2":
+            visualizar_tarefa(tarefas)
         elif menu == "0":
             print("Saindo do programa...")
             break
         else:
             print("Opção inválida! Por favor, escolha uma opção válida.")
 
-principal()
+if __name__ == "__main__":
+    principal()

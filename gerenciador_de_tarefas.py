@@ -38,6 +38,13 @@ def completar_tarefa(tarefas):
     salvar_tarefa(tarefas)
     print("Tarefa completada!")
 
+def editar_tarefa(tarefas):
+    print("teste")
+
+def excluir_tarefa(tarefas):
+    print("teste")
+
+
 def principal():
 
     tarefas = carregar_tarefa()
@@ -47,17 +54,23 @@ def principal():
         print("1. Adicionar Tarefa")
         print("2. Visualizar Tarefas")
         print("3. Completar Tarefas")
+        print("4. Editar Tarefas")
+        print("5. Excluir Tarefas")
         print("0. Sair")
 
         menu = input("Digite o número da opção desejada: ")
 
         if menu == "1":
             adicionar_tarefa(tarefas)
-        if menu == "2":
+        elif menu == "2":
             visualizar_tarefa(tarefas)
-        if menu == "3":
+        elif menu == "3":
             completar_tarefa(tarefas)
-        if menu == "0":
+        elif menu == "4":
+            editar_tarefa(tarefas)
+        elif menu == "5":
+            excluir_tarefa(tarefas)
+        elif menu == "0":
             print("Saindo do programa...")
             break
         else:
